@@ -1,10 +1,10 @@
-package Paquete1;
+package Model;
 
 /**
  *
  * @author danielmora
  */
-public class Usuario {
+public abstract  class Usuario {
     
     private int id;
     private String nombre;
@@ -69,6 +69,7 @@ public class Usuario {
     }
     
     
+    public abstract void mostrarDatosUsuario_Doctor_Enfermera_paciente();
     
     
 }

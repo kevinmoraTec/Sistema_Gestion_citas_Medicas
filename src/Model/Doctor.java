@@ -1,7 +1,11 @@
-package Paquete1;
+package Model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,11 +17,8 @@ public class Doctor extends Usuario{
 
   
 
-    Doctor(String name, String correo) {
+    public  Doctor(String name, String correo) {
         super(name,correo);
-        System.out.println("El nomrbe del Doctor Asignado es :" + name);
-        this.especialidad = especialidad;
-
     }
 
     public String getEspecialidad() {
@@ -33,7 +34,7 @@ public class Doctor extends Usuario{
     // Comportamientos
  
     ArrayList<cita_Disponibles> cita_disponibles = new ArrayList<>();
-    public void agregar_cita_Disponibles(Date date, String time){ // Creamos nuevas citas
+    public void agregar_cita_Disponibles(String date, String time){ // Creamos nuevas citas
         cita_disponibles.add(new Doctor.cita_Disponibles(date, time));
     }
         
@@ -53,14 +54,21 @@ public class Doctor extends Usuario{
         private int citas_disponibles;
         private Date date;
         private String time;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-        public cita_Disponibles(Date date, String time) {
-            this.date = date;
+        public cita_Disponibles(String date, String time) {
+            try {
+                this.date = formato.parse(date);
+            } catch (ParseException ex) {
+                Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.time = time;
         }
-
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
+        }                               
+        public String getDate() {
+            return formato.format(date);
         }
 
         public void setDate(Date date) {
@@ -80,8 +88,16 @@ public class Doctor extends Usuario{
             return "cita_Disponibles{" + "date=" + date + ", time=" + time + '}';
         }
 
-        
-        
+     
     }
+
+    @Override
+    public void mostrarDatosUsuario_Doctor_Enfermera_paciente() {
+        
+        System.out.println(" Empleado del Hospital: Cruz Roja");
+        System.out.println("Departamento: Cancerologia");
+    }
+    
+    
 
 }

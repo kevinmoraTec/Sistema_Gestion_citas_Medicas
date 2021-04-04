@@ -1,4 +1,4 @@
-package Paquete1;
+package Model;
 
 /**
  *
@@ -55,6 +55,12 @@ public class Paciente extends Usuario {
     public String toString() {
         return super.toString() + "\nEdad: " + cumpleaños +"\nPeso: "+getPeso() + ""
                 + "\nAltura: "+getAltura() +"\nTipo de Sangre: "+sangre;
+    }
+
+    @Override
+    public void mostrarDatosUsuario_Doctor_Enfermera_paciente() {
+        System.out.println("Paciente:");
+        System.out.println("Historial completo del Paciente");
     }
 
  
