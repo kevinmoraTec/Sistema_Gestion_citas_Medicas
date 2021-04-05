@@ -112,6 +112,7 @@ public class UIMenu {
                     if (p.getCorreo().equals(correo)) {
                         correoCorrecto=true;
                         pacienteRegistrado=p;
+                        PacienteMenu.mostrarMenuPaciente();
                     }
                 }
             }

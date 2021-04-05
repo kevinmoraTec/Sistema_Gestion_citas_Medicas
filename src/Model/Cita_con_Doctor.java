@@ -13,6 +13,13 @@ public class Cita_con_Doctor implements ISchedulable{
     private Date date;
     private String time;
 
+    public Cita_con_Doctor(Paciente paciente, Doctor doctor) {
+        this.paciente = paciente;
+        this.doctor = doctor;
+    }
+    
+     
+
     public int getId() {
         return id;
     }
@@ -46,7 +53,7 @@ public class Cita_con_Doctor implements ISchedulable{
     }
 
     public String getTime() {
-        return time;
+        return time+" hrs.";
     }
 
     public void setTime(String time) {
@@ -55,6 +62,8 @@ public class Cita_con_Doctor implements ISchedulable{
 
     @Override
     public void schedule(Date date, String time) {
+        this.date=date;
+        this.time=time;
         
     }
     
